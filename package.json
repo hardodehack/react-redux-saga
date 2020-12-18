@@ -3,18 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-react-buttons": "^2.0.0",
     "@progress/kendo-react-dateinputs": "^2.0.0",
     "@progress/kendo-react-dropdowns": "^2.0.0",
     "@progress/kendo-react-inputs": "^2.0.0",
     "@progress/kendo-react-intl": "^2.0.0",
-    "@progress/kendo-react-buttons": "^2.0.0",
     "@progress/kendo-theme-default": "^2.50.0",
-    "prop-types": "^15.6.1",
     "final-form": "^4.4.0",
+    "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-final-form": "^3.1.5",
-    "react-scripts": "1.1.4"
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "reselect": "^4.0.0"
+  },
+  "devDependencies": {
+    "immutable": "3.8.2"
   },
   "scripts": {
     "start": "react-scripts start",
