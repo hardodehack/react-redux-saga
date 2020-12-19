@@ -4,18 +4,25 @@ import selector from '../selectors';
 
 function* saveFormData() {
     console.log('Hardik into sagas')
-  const json = yield fetch('https://newsapi.org/v1/articles?source=cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc')
-  .then(response => response.json(), );
-  debugger;
-  let valInSagas = yield select(selector.makeSelectFromOneVar());
+    let valInSagas = yield select(selector.makeSelectFromOneVar());
+    let rollString = JSON.stringify(valInSagas);
 
-  console.log("Montu hardo ",valInSagas);
+    const headerParams = {
+        "Content-Type": "application/json"
+      };
+
+    const json = yield fetch('https://ad-enterprise.firebaseio.com/rolluses.json', {
+        method: 'POST',
+        body: rollString,
+        headerParams: headerParams
+    })
+        .then(response => response.json(),);
 }
 function* actionWatcher() {
-     yield takeLatest('SAVE_FORM_DATA', saveFormData)
+    yield takeLatest('SAVE_FORM_DATA', saveFormData)
 }
 export default function* rootSaga() {
-   yield all([
-   actionWatcher(),
-   ]);
+    yield all([
+        actionWatcher(),
+    ]);
 }
