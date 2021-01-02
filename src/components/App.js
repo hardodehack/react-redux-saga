@@ -4,12 +4,14 @@ import FinalForm from '../containers/FinalForm';
 import '@progress/kendo-theme-default/dist/all.css';
 import '../App.css';
 
+import Login from '../containers/Login';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="container">
-          <FinalForm />
+          <Login />
         </div>
       </div>
     );
