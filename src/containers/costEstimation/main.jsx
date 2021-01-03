@@ -1,5 +1,4 @@
 import * as React from 'react';
-//import * as ReactDOM from 'react-dom';
 
 import { Form, FormElement } from '@progress/kendo-react-form';
 import { Button } from '@progress/kendo-react-buttons';
@@ -50,7 +49,7 @@ export const main = () => {
 
             if (isLastStep) {
 
-                let pC = ((values.rollSize * values.machineSize * values.gsm * values.packetPieces ) / 10000000) * values.costPerKg;
+                let pC = ((values.rollSize * values.machineSize * values.gsm * values.packetPieces ) / 10000000) * values.ratePerKg;
                 let paperCosting = Math.round((pC + Number.EPSILON) * 100) / 100;
 
                 let transpotationCost = values.transpotation;
@@ -69,8 +68,8 @@ export const main = () => {
 
                 console.log('Hardik pBRound ',pBRound);
 
-                let plasticBagCostingInter = ( 1000 / pBRound);
-                let dCutBagCostingInter = ( 1000 /  dCutRound);
+                let plasticBagCostingInter = ( pBRound / 1000 ) * values.pRatePerKg;
+                let dCutBagCostingInter = ( dCutRound /  1000 ) * values.dRatePerKg;
 
                 console.log('Hardik plasticBagCostingInter ',plasticBagCostingInter);
                 
@@ -78,7 +77,7 @@ export const main = () => {
                 let dCutBagCosting = Math.round((dCutBagCostingInter + Number.EPSILON) * 100) / 100;  
 
                 let totalCostingInter = paperCosting + transpotationCost + coroBoxCost + labourCost + plasticBagCosting + dCutBagCosting;
-                let totalCosting = Math.round((totalCostingInter + Number.EPSILON) * 100) / 100;  
+                let totalCosting = Math.round((totalCostingInter + Number.EPSILON) * 100) / 100;
 
                 console.log('Hardik paperCosting ',paperCosting);
                 console.log('Hardik transpotationCost',transpotationCost);
@@ -145,7 +144,3 @@ export const main = () => {
 };
 
 export default main;
-//  ReactDOM.render(
-//      <App />,
-//      document.querySelector('my-app')
-//  );

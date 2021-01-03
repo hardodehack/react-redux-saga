@@ -31,5 +31,14 @@ export const DCutBagCost = (
             label={'Gauge'}
             component={NumericTextBox}
         />
+        <br />
+
+        <Field
+            key={'dRatePerKg'}
+            id={'dRatePerKg'}
+            name={'dRatePerKg'}
+            label={'Rate Per Kg'}
+            component={NumericTextBox}
+        />
     </div>
 );

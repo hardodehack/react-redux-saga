@@ -29,8 +29,17 @@ export const PlasticBagCost = (
             id={'gauge'}
             name={'gauge'}
             label={'Gauge'}
-            layout={'horizontal'}
             component={NumericTextBox}
         />
+        <br />
+
+        <Field
+            key={'pRatePerKg'}
+            id={'pRatePerKg'}
+            name={'pRatePerKg'}
+            label={'Rate Per Kg'}
+            component={NumericTextBox}
+        />
+
     </div>
 );

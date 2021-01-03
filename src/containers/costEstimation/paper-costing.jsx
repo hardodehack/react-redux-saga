@@ -42,10 +42,10 @@ export const PaperCosting = (
         />
          <br />
         <Field
-            key={'costPerKg'}
-            id={'costPerKg'}
-            name={'costPerKg'}
-            label={'Cost Per Kg'}
+            key={'ratePerKg'}
+            id={'ratePerKg'}
+            name={'ratePerKg'}
+            label={'Rate Per Kg'}
             component={NumericTextBox}
         />
     </div>
