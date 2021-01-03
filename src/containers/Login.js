@@ -14,6 +14,8 @@ import { Input } from '@progress/kendo-react-inputs';
 
 import FinalForm from './FinalForm';
 
+import Cost from './costEstimation/main';
+
 // This example has 3 pages: a public page, a protected
 // page, and a login screen. In order to see the protected
 // page, you must first login. Pretty standard stuff.
@@ -37,24 +39,37 @@ export default function AuthExample() {
           <AuthButton />
 
           <ul>
-            <li>
+
+            {/* <li>
               <Link to="/public">Public Page</Link>
-            </li>
+            </li> */}
             <li>
-              <Link to="/protected">Protected Page</Link>
+              <Link to="/protected">Stock Management</Link>
             </li>
+
+            <li>
+              <Link to="/costEstimation">Cost Estimation</Link>
+            </li>
+
           </ul>
 
           <Switch>
-            <Route path="/public">
+            {/* <Route path="/public">
               <PublicPage />
-            </Route>
+            </Route> */}
+
             <Route path="/login">
               <LoginPage />
             </Route>
+
             <PrivateRoute path="/protected">
               <FinalForm />
             </PrivateRoute>
+
+            <PrivateRoute path="/costEstimation">
+              <Cost />
+            </PrivateRoute>
+
           </Switch>
         </div>
       </Router>
@@ -182,7 +197,7 @@ function LoginPage() {
   let { from } = location.state || { from: { pathname: "/" } };
   let login = (dataItem) => {
     console.log(dataItem);
-    auth.signin((dataItem) => {
+    auth.signin(() => {
       history.replace(from);
     });
   };
@@ -201,13 +216,12 @@ function LoginPage() {
             render={(formRenderProps) => (
                 <FormElement style={{maxWidth: 650}}>
                     <fieldset className={'k-form-fieldset'}>
-                        <legend className={'k-form-legend'}>Please fill in the fields:</legend>
+                        <legend className={'k-form-legend'}>Login :</legend>
                         <div className="mb-3">
-                            <Field name={'firstName'} component={Input} label={'First name'} />
+                            <Field name={'username'} component={Input} label={'Username'} />
                         </div>
-
                         <div className="mb-3">
-                            <Field name={'lastName'} component={Input} label={'Last name'} />
+                            <Field name={'password'} component={Input} label={'Password'} type="password" />
                         </div>
 
                        
